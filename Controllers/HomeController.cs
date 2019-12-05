@@ -57,7 +57,6 @@ namespace WeddingPlanner.Controllers
                 return View("Index");
             }
 
-
             int? GuestId = HttpContext.Session.GetInt32("GuestId");
             if(GuestId == null)
             {
@@ -173,7 +172,8 @@ namespace WeddingPlanner.Controllers
         {
             if(ModelState.IsValid)
             {
-                newWedding.Creator = dbContext.Guests.First(guest => guest.GuestId == HttpContext.Session.GetInt32("GuestId"));
+                newWedding.UserId = (int)HttpContext.Session.GetInt32("GuestId");
+                newWedding.Creator = dbContext.Guests.FirstOrDefault(u => u.GuestId == (int)HttpContext.Session.GetInt32("GuestId"));
                 dbContext.Weddings.Add(newWedding);
                 dbContext.SaveChanges();
                 ViewBag.GuestId = HttpContext.Session.GetInt32("GuestId");

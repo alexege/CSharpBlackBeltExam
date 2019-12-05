@@ -23,6 +23,7 @@ namespace WeddingPlanner
         public string Address { get; set; }
 
         public List<RSVP> RSVPs { get; set; }
+        public int UserId {get;set;}
 
         public Guest Creator { get; set; }
     }

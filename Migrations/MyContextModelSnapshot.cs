@@ -83,6 +83,8 @@ namespace WeddingPlanner.Migrations
                     b.Property<string>("Groom")
                         .IsRequired();
 
+                    b.Property<int>("UserId");
+
                     b.HasKey("WeddingId");
 
                     b.HasIndex("CreatorGuestId");

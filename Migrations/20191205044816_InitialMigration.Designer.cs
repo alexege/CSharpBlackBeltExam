@@ -9,8 +9,8 @@ using WeddingPlanner.Models;
 namespace WeddingPlanner.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20190822204807_01")]
-    partial class _01
+    [Migration("20191205044816_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -84,6 +84,8 @@ namespace WeddingPlanner.Migrations
 
                     b.Property<string>("Groom")
                         .IsRequired();
+
+                    b.Property<int>("UserId");
 
                     b.HasKey("WeddingId");
 
